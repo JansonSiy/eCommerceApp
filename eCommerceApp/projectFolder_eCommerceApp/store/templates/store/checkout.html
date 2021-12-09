@@ -1,6 +1,9 @@
-<!-- STEP 1 - CREATE THE NEEDED TEMPLATES -->
+{% extends 'store/main.html' %}
+
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
 
-<h1>CHECKOUT PAGE</h1>
+{% block content %}
+    <h1>CHECKOUT PAGE</h1>
+{% endblock content %}

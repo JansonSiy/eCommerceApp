@@ -1,6 +1,61 @@
-<!-- STEP 1 - CREATE THE NEEDED TEMPLATES -->
+<!-- This loads the shared template -->
+{% extends 'store/main.html' %}
+
+<!-- This loads the static folder css -->
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
 
-<h1>STORE PAGE</h1>
+{% block content %}
+    <h1>STORE PAGE</h1>
+
+    <div class="row row-cols-1 row-cols-sm-3 g-3">
+        <div class="col">
+            <div class="card">
+                <img src="{% static 'store/images/cart.png' %}" class="card-img-top" alt="card-grid-image">
+                <div class="card-body">
+                    <h5 class="card-title">Product</h5>
+                    <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
+                    <a class="btn btn-outline-success" href="a">View</a>
+                    <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
+                </div>  
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <img src="{% static 'store/images/cart.png' %}" class="card-img-top" alt="card-grid-image">
+                <div class="card-body">
+                    <h5 class="card-title">Product</h5>
+                    <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
+                    <a class="btn btn-outline-success" href="a">View</a>
+                    <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
+                </div>  
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <img src="{% static 'store/images/cart.png' %}" class="card-img-top" alt="card-grid-image">
+                <div class="card-body">
+                    <h5 class="card-title">Product</h5>
+                    <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
+                    <a class="btn btn-outline-success" href="a">View</a>
+                    <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
+                </div>  
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <img src="{% static 'store/images/cart.png' %}" class="card-img-top" alt="card-grid-image">
+                <div class="card-body">
+                    <h5 class="card-title">Product</h5>
+                    <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
+                    <a class="btn btn-outline-success" href="a">View</a>
+                    <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
+                </div>  
+            </div>
+        </div>
+    </div>
+{% endblock content %}
