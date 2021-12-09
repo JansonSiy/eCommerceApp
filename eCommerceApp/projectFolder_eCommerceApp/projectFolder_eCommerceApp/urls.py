@@ -18,12 +18,16 @@ Including another URLconf
 # The next step is to point the root URLconf at the store.urls module.
 # In projectFolder_eCommerceApp/urls.py, add an import for django.urls.include and insert an include() in the urlpatterns list.
 # The include() function allows referencing other URLconfs. Whenever Django encounters include(), it chops off whatever part of the URL matched up to that point and sends the remaining string to the included URLconf for further processing.
-# The idea behind include() is to make it easy to plug-and-play URLs. Since store are in their own URLconf (store/urls.py), they can be placed under “/store/”, or under “/fun_store/”, or under “/content/store/”, or any other path root, and the app will still work.
+# The idea behi nd include() is to make it easy to plug-and-play URLs. Since store are in their own URLconf (store/urls.py), they can be placed under “/store/”, or under “/fun_store/”, or under “/content/store/”, or any other path root, and the app will still work.
 
+# removed, I don't know what this is for, but it's causing an error
+# from _typeshed import SupportsLessThan
 from django.contrib import admin
 from django.urls import include, path
+from store import url as store_url
+# from store app, import url.py then rename to store_url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('store.urls'))
+    path('', include(store_url))
 ]

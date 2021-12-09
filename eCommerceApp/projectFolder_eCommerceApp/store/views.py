@@ -17,3 +17,18 @@ def cart(request):
 def checkout(request):
     context = {}
     return render(request, 'store/checkout.html', context)
+
+# shorthand - please note that your templates should not be in a store folder
+# from django.shortcuts import render_template
+
+# def store(request):
+#     context = {}
+#     return render_template('store.html')
+
+# def cart(request):
+#     context = {}
+#     return render_template('cart.html')
+
+# def checkout(request):
+#     context = {}
+#     return render_template('checkout.html')
