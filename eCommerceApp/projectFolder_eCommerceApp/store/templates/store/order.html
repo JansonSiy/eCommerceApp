@@ -1,0 +1,37 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
+
+{% block content %}
+    <br>
+    <div class="card">
+        <h1 class="card-header">Order List</h1>
+        <div class="card-body">
+            <table>
+                <tr>
+                    <th>Customer</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                    <th>Shipping Address</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>@Customer.name</td>
+                    <td>@Product.name</td>
+                    <td>@Product.price</td>
+                    <td>@Order.quantity</td>
+                    <td>price*quantity</td>
+                    <td>@Customer.address</td>
+                    <td>@Order.complete</td>
+                </tr> 
+            </table>
+            <hr>
+            <a class="btn btn-success" href="{% url 'store' %}">&#x2190; Continue Shopping</a>
+            <a class="btn btn-success" href="{% url 'store' %}">&#x2190; Go to Profile</a>
+        </div>
+    </div>
+{% endblock content %}

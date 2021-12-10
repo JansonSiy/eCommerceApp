@@ -1,0 +1,34 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
+
+{% block content %}
+    <br>
+    <div class="card">
+        <h1 class="card-header">User Profile</h1>
+        <div class="card-body">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                </tr>
+                <tr>
+                    <td>@Customer.name</td>
+                    <td>@Customer.age</td>
+                    <td>@Customer.gender</td>
+                    <td>@Customer.email</td>
+                    <td>@Customer.address</td>
+                </tr> 
+            </table>
+        </div>
+        <h1 class="card-header">Transaction History</h1>
+        <div class="card-body">
+            <h5>No logs yet.</h5>
+        </div>
+    </div>
+{% endblock content %}
