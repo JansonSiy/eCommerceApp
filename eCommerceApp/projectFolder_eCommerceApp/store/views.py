@@ -3,7 +3,8 @@ from django.shortcuts import render
 # STEP 3 - WRITE YOUR VIEWS
 
 def store(request):
-    context = {}
+    # method + data
+    context = {}#push it here
     return render(request, 'store/store.html', context)
     # Reference: https://docs.djangoproject.com/en/3.2/topics/http/shortcuts/
     # Request - The request object used to generate this response.
