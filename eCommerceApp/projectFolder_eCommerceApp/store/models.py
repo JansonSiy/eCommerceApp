@@ -17,6 +17,7 @@ class Customer(models.Model):
     address = models.CharField(max_length=100)
 
 # ORM bridges the gap between the code & the database
+# import first - from store.models import *
 # python mange.py shell - like a console
 # from store.models import Customer - importing a model (ex. from appName.model.pyFile import className)
 # Customer.objects.all() - show all objects

@@ -9,94 +9,20 @@
 {% block content %}
     <br>
     <div class="row row-cols-1 row-cols-sm-3 g-3">
+        {% for product in products %}
         <div class="col">
             <div class="card">
-                <img src="{% static 'store/images/placeholder.jpeg' %}" class="card-img-top" alt="card-grid-image">
+                <img src="{{product.image}}" class="card-img-top" alt="card-grid-image">
                 <div class="card-body">
-                    <h5 class="card-title">Product</h5>
-                    <h6 class="card-title">Quantity: 1</h6>
+                    <h5 class="card-title">Item: {{product.name}}</h5>
                     <button class="btn btn-outline-success add-btn">Add to Cart</button>
                     <button class="btn btn-outline-success add-btn">+</button>
                     <button class="btn btn-outline-success add-btn">-</button>
-                    <h5 style="display: inline-block; float: right"><strong>$0</strong></h5>
+                    <h5 style="display: inline-block; float: right"><strong>Price: ${{product.price}}</strong></h5>
                 </div>  
             </div>
             <br>
         </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="{% static 'store/images/placeholder.jpeg' %}" class="card-img-top" alt="card-grid-image">
-                <div class="card-body">
-                    <h5 class="card-title">Product</h5>
-                    <h6 class="card-title">Quantity: 1</h6>
-                    <button class="btn btn-outline-success add-btn">Add to Cart</button>
-                    <button class="btn btn-outline-success add-btn">+</button>
-                    <button class="btn btn-outline-success add-btn">-</button>
-                    <h5 style="display: inline-block; float: right"><strong>$0</strong></h5>
-                </div>  
-            </div>
-            <br>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="{% static 'store/images/placeholder.jpeg' %}" class="card-img-top" alt="card-grid-image">
-                <div class="card-body">
-                    <h5 class="card-title">Product</h5>
-                    <h6 class="card-title">Quantity: 1</h6>
-                    <button class="btn btn-outline-success add-btn">Add to Cart</button>
-                    <button class="btn btn-outline-success add-btn">+</button>
-                    <button class="btn btn-outline-success add-btn">-</button>
-                    <h5 style="display: inline-block; float: right"><strong>$0</strong></h5>
-                </div>  
-            </div>
-            <br>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="{% static 'store/images/placeholder.jpeg' %}" class="card-img-top" alt="card-grid-image">
-                <div class="card-body">
-                    <h5 class="card-title">Product</h5>
-                    <h6 class="card-title">Quantity: 1</h6>
-                    <button class="btn btn-outline-success add-btn">Add to Cart</button>
-                    <button class="btn btn-outline-success add-btn">+</button>
-                    <button class="btn btn-outline-success add-btn">-</button>
-                    <h5 style="display: inline-block; float: right"><strong>$0</strong></h5>
-                </div>  
-            </div>
-            <br>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="{% static 'store/images/placeholder.jpeg' %}" class="card-img-top" alt="card-grid-image">
-                <div class="card-body">
-                    <h5 class="card-title">Product</h5>
-                    <h6 class="card-title">Quantity: 1</h6>
-                    <button class="btn btn-outline-success add-btn">Add to Cart</button>
-                    <button class="btn btn-outline-success add-btn">+</button>
-                    <button class="btn btn-outline-success add-btn">-</button>
-                    <h5 style="display: inline-block; float: right"><strong>$0</strong></h5>
-                </div>  
-            </div>
-            <br>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="{% static 'store/images/placeholder.jpeg' %}" class="card-img-top" alt="card-grid-image">
-                <div class="card-body">
-                    <h5 class="card-title">Product</h5>
-                    <h6 class="card-title">Quantity: 1</h6>
-                    <button class="btn btn-outline-success add-btn">Add to Cart</button>
-                    <button class="btn btn-outline-success add-btn">+</button>
-                    <button class="btn btn-outline-success add-btn">-</button>
-                    <h5 style="display: inline-block; float: right"><strong>$0</strong></h5>
-                </div>  
-            </div>
-            <br>
-        </div>
+        {% endfor %}
     </div>
 {% endblock content %}
