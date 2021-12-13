@@ -4,18 +4,34 @@ from .models import Customer
 from .models import Product
 from .models import Order
 
+def users(request):
+    Customer.objects.all().delete()
+    
+    customerTwo = Customer(name='Jeff', age=28, gender='Male', email='jeff@example.com', address='San Diego City', status=False)
+    customerTwo.save()
+
+    customerThree = Customer(name='Jet', age=21, gender='Male', email='jet@example.com', address='Manila City', status=True)
+    customerThree.save()
+
+    customerFour = Customer(name='Joana', age=29, gender='Female', email='joana@example.com', address='Manila City', status=False)
+    customerFour.save()
+
+    customerFive = Customer(name='Janelle', age=33, gender='Female', email='janelle@example.com', address='Alabang City', status=True)
+    customerFive.save()
+
+    customerThree = Customer(name='Jason', age=35, gender='Male', email='jason@example.com', address='N/A', status=False)
+    customerThree.save()
+
+    users = Customer.objects.all()
+
+    context = {'users': users}
+
+    return render(request, 'store/users.html', context)
+
 def profile(request):
-    # customerOneGender = customerOne.gender
-
-    # if customerOneGender == True:
-    #     customerOneGender = 'Male'
-    # else:
-    #     customerOneGender = 'Female'
-    #     customerOne.save()
-
     Customer.objects.all().delete()
 
-    customerOne = Customer(name='Jan', age=27, gender=True, email='jan@example.com', address='Pasig City')
+    customerOne = Customer(name='Jan', age=27, gender='Male', email='jan@example.com', address='Pasig City', status=True)
     customerOne.save()
 
     context = {'customer': customerOne}

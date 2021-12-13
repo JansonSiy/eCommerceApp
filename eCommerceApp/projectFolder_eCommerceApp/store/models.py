@@ -12,9 +12,10 @@ from django.db import models
 class Customer(models.Model):
     name = models.CharField(max_length=100)
     age = models.IntegerField(default=0)
-    gender = models.BooleanField(default=False)
+    gender = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
+    status = models.BooleanField(default=True)
 
 # ORM bridges the gap between the code & the database
 # import first - from store.models import *

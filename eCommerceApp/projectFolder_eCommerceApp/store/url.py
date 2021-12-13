@@ -8,6 +8,7 @@ from . import views
 urlpatterns = [
     # CUSTOMER MODEL
     path('', views.profile, name='profile'),
+    path('users/', views.users, name='users'),
     # PRODUCT MODEL
     path('store/', views.store, name='store'),
     # ORDER MODEL
