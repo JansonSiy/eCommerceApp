@@ -17,7 +17,8 @@
                 <li class="list-group-item"><strong>Adress:</strong> {{customer.address}}</li>
             </ul>
             <br>
-            <button class="btn btn-outline-success add-btn">Shop</button>
+            <a class="btn btn-success" href="{% url 'store' %}">&#x2190; Continue Shopping</a>
+            <a class="btn btn-success" href="{% url 'order' %}">&#x2190; Go to Cart</a>
         </div>
         <h1 class="card-header">Transaction History</h1>
         <div class="card-body">
