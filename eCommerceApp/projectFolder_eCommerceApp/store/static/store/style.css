@@ -1,4 +1,8 @@
 /* STEP 6 - SETUP STATIC FOLDER & REFERENCE IN TEMPLATES */
-h1 {
+h1, .active {
     color: green;
+}
+
+.inactive {
+    color: red;
 }

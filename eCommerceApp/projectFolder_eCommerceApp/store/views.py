@@ -38,7 +38,7 @@ def profile(request):
 
     return render(request, 'store/profile.html', context)
 
-def store(request):
+def mystore(request):
     Product.objects.all().delete()
 
     productOne = Product(name='Apple', price=10, image='https://media.istockphoto.com/vectors/simple-apple-in-flat-style-vector-illustration-vector-id1141529240?k=20&m=1141529240&s=612x612&w=0&h=_j9z-sPT6AqFDSSXHnSYWrXOvDOgyMmSdTUrBiZULCo=')
@@ -63,16 +63,16 @@ def store(request):
     
     context = {'products': products}
 
-    return render(request, 'store/store.html', context)
+    return render(request, 'store/mystore.html', context)
     # reference: https://docs.djangoproject.com/en/3.2/topics/http/shortcuts/
     # request - The request object used to generate this response.
     # template_name - The full name of a template to use or sequence of template names. If a sequence is given, the first template that exists will be used. See the template loading documentation for more information on how templates are found.
     # context - A dictionary of values to add to the template context. By default, this is an empty dictionary. If a value in the dictionary is callable, the view will call it just before rendering the template.
 
-def order(request):
+def cart(request):
 
     context = {}
-    return render(request, 'store/order.html', context)
+    return render(request, 'store/cart.html', context)
 
 # shorthand - please note that your templates should not be in a store folder
 # from django.shortcuts import render_template

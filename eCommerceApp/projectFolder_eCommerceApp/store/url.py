@@ -5,12 +5,14 @@
 from django.urls import path
 from . import views
 
+app_name = 'store'
+
 urlpatterns = [
     # CUSTOMER MODEL
-    path('', views.profile, name='profile'),
+    path('profile/', views.profile, name='profile'),
     path('users/', views.users, name='users'),
     # PRODUCT MODEL
-    path('store/', views.store, name='store'),
+    path('mystore/', views.mystore, name='mystore'),
     # ORDER MODEL
-    path('order/', views.order, name='order')
+    path('cart/', views.cart, name='cart')
 ]

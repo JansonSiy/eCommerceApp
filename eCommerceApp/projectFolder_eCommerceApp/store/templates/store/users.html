@@ -30,11 +30,11 @@
                             <td>{{user.address}}</td>
                             <td>
                                 {% if user.status == True %}
-                                    <span style="color:green;">Active</span>
+                                    <span class="active">Active</span>
                                 {% elif user.status == False %}
-                                    <span style="color:red;">Inactive</span>
+                                    <span class="inactive">Inactive</span>
                                 {% else %}
-                                    <span style="color:yellow;">N/A</span>
+                                    <span class="pending">N/A</span>
                                 {% endif %}
                             </td>
                         </tr>

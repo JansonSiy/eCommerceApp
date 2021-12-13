@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     # To include the app in our project, we need to add a reference to its configuration class in the INSTALLED_APPS setting.
     # The StoreConfig class is in the store/apps.py file, so its dotted path is 'store.apps.StoreConfig'.
     # Edit the projectFolder_eCommerceApp/settings.py file and add that dotted path to the INSTALLED_APPS setting.
-    'store.apps.StoreConfig'
+    'store.apps.StoreConfig',
+    # STEP 8 - creating accounts app
+    'accounts.apps.AccountsConfig'
 ]
 
 MIDDLEWARE = [

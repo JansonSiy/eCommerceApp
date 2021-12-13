@@ -24,10 +24,14 @@ Including another URLconf
 # from _typeshed import SupportsLessThan
 from django.contrib import admin
 from django.urls import include, path
-from store import url as store_url
+# ALTERNATIVE OPTION
 # from store app, import url.py then rename to store_url
+from store import url as store_url
+from accounts import url as accounts_url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(store_url))
+    path('store/', include(store_url)),
+    # STEP 8 - CREATE ACCOUNTS APP
+    path('', include(accounts_url))
 ]
