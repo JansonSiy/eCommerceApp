@@ -1,0 +1,8 @@
+{% block content %}
+    <h1>Login Form</h1>
+    <form action="{% url 'accounts:login' %}" method='post'>
+        {% csrf_token %}
+        {{form}}
+        <input type='submit' value='Sign Up'>
+    </form>
+{% endblock %}
