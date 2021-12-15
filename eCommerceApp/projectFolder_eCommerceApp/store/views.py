@@ -44,13 +44,13 @@ def mystore(request):
     productOne = Product(name='Apple', price=10, image='https://media.istockphoto.com/vectors/simple-apple-in-flat-style-vector-illustration-vector-id1141529240?k=20&m=1141529240&s=612x612&w=0&h=_j9z-sPT6AqFDSSXHnSYWrXOvDOgyMmSdTUrBiZULCo=')
     productOne.save()
 
-    productTwo = Product(name='Banana', price=20, image='https://webstockreview.net/images/banana-clipart-simple-5.png')
+    productTwo = Product(name='Banana', price=20, image='https://media.istockphoto.com/vectors/banana-icon-fresh-banana-on-white-vector-id871892360?k=20&m=871892360&s=170667a&w=0&h=taOnjSKzU2ZHmYZu0-pfM9v5zueodjH4y0rw6xwe9-M=')
     productTwo.save()
 
     productThree = Product(name='Mango', price=30, image='https://media.istockphoto.com/vectors/mango-ripe-fruit-simple-isolated-on-white-background-yellow-mango-vector-id1251708686?k=20&m=1251708686&s=170667a&w=0&h=QWEYqI84yNHY-_eMwzRloBhKnVmbYk4azADujwJAXuU=')
     productThree.save()
 
-    productFour = Product(name='Grapes', price=40, image='https://t4.ftcdn.net/jpg/02/26/62/03/360_F_226620346_fjIT0VVzhnGhSp9rjLhSyw76AqNNRGnx.jpg')
+    productFour = Product(name='Grapes', price=40, image='https://media.istockphoto.com/vectors/grapes-icon-vector-id1193509529?k=20&m=1193509529&s=612x612&w=0&h=ZfW6iDjfFsiylUsMAEq4o_YQuJ7GdjivbE_g30VENaE=')
     productFour.save()
 
     productFive = Product(name='Watermelon', price=50, image='https://t4.ftcdn.net/jpg/02/71/31/29/360_F_271312913_fNkJIq7J4EojJTfB4flj6NLvl1NjYPJ4.jpg')
@@ -61,7 +61,9 @@ def mystore(request):
 
     products = Product.objects.all()
     
-    context = {'products': products}
+    current_user = request.user
+
+    context = {'products': products, 'user': current_user}
 
     return render(request, 'store/mystore.html', context)
     # reference: https://docs.djangoproject.com/en/3.2/topics/http/shortcuts/
@@ -70,7 +72,6 @@ def mystore(request):
     # context - A dictionary of values to add to the template context. By default, this is an empty dictionary. If a value in the dictionary is callable, the view will call it just before rendering the template.
 
 def cart(request):
-
     context = {}
     return render(request, 'store/cart.html', context)
 

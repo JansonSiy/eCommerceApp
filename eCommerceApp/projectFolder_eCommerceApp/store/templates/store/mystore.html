@@ -1,5 +1,5 @@
 <!-- This loads the shared template -->
-{% extends 'store/base.html' %}
+{% extends 'store/base_logged_in.html' %}
 
 <!-- This loads the static folder css -->
 {% load static %}
@@ -7,17 +7,17 @@
 <link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
 
 {% block content %}
-    <br>
+    <span class="badge bg-success margin">user: {{user.username}}</span>
     <div class="row row-cols-1 row-cols-sm-3 g-3">
         {% for product in products %}
         <div class="col">
             <div class="card">
-                <img src="{{product.image}}" class="card-img-top" alt="card-grid-image">
+                <img src="{{product.image}}" class="card-img-top imgSize" alt="card-grid-image">
                 <div class="card-body">
                     <h5 class="card-title">Item: {{product.name}}</h5>
-                    <button class="btn btn-outline-success add-btn">Add to Cart</button>
-                    <button class="btn btn-outline-success add-btn">+</button>
-                    <button class="btn btn-outline-success add-btn">-</button>
+                    <button class="btn btn-success add-btn">Add to Cart</button>
+                    <button class="btn btn-success add-btn">+</button>
+                    <button class="btn btn-success add-btn">-</button>
                     <h5 style="display: inline-block; float: right"><strong>Price: ${{product.price}}</strong></h5>
                 </div>  
             </div>

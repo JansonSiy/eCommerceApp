@@ -6,3 +6,27 @@ h1, .active {
 .inactive {
     color: red;
 }
+
+.margin {
+    margin: 1vh 0px 1vh 0.5vw;
+}
+
+.imgSize {
+    height: 50vh;
+}
+
+.base_logged_out {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 15%;
+}
+
+.bye {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50vh;
+    width: 100%;
+}
