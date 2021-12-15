@@ -3,6 +3,8 @@ from django.shortcuts import render
 from .models import Customer
 from .models import Product
 from .models import Order
+# STEP 11 - REQUIRE LOGIN AUTHENTICATION
+from django.contrib.auth.decorators import login_required
 
 def users(request):
     Customer.objects.all().delete()
@@ -38,6 +40,8 @@ def profile(request):
 
     return render(request, 'store/profile.html', context)
 
+# STEP 11 - REQUIRE LOGIN AUTHENTICATION
+@login_required(login_url='/login')
 def mystore(request):
     Product.objects.all().delete()
 
