@@ -11,11 +11,18 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 # importing login function
 
+# STEP 12 - UPDATE USER MODEL & FORM
+from .forms import RegisterUserForm
+
 def signup_view(request):
     # if it's a post request
     if request.method == 'POST':
         # passing all the values/data of the post request to a new instance
-        form = UserCreationForm(request.POST)
+        # change the below from that ->
+        # form = UserCreationForm(request.POST)
+        # to the below <-
+        # STEP 12 - UPDATE USER MODEL & FORM
+        form = RegisterUserForm(request.POST)
         # if the form is valid (follows the instructions imbeded in django form) it saves the data
         # .is_valid() is a built in method that can check that, that returns boolean value
         if form.is_valid():

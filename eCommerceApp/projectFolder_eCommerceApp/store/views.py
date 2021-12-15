@@ -36,7 +36,9 @@ def profile(request):
     customerOne = Customer(name='Jan', age=27, gender='Male', email='jan@example.com', address='Pasig City', status=True)
     customerOne.save()
 
-    context = {'customer': customerOne}
+    current_user = request.user
+
+    context = {'customer': customerOne, 'user': current_user}
 
     return render(request, 'store/profile.html', context)
 
