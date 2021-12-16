@@ -1,6 +1,6 @@
 # STEP 3 - WRITE YOUR VIEWS
 from django.shortcuts import render
-from .models import Customer
+from .models import Profile
 from .models import Product
 from .models import Order
 # STEP 11 - REQUIRE LOGIN AUTHENTICATION
@@ -41,7 +41,7 @@ def profile(request):
     # context = {'customer': customerOne, 'user': current_user}
 
     current_user = request.user
-    
+
     context = {'user': current_user}
 
     return render(request, 'store/profile.html', context)
