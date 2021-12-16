@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .models import Profile
 from .models import Product
 from .models import Order
+from .models import User
 # STEP 11 - REQUIRE LOGIN AUTHENTICATION
 from django.contrib.auth.decorators import login_required
 
@@ -25,10 +26,10 @@ def users(request):
     # customerThree.save()
 
     # users = Customer.objects.all()
-
-    # context = {'users': users}
-
-    context = {}
+    
+    users = User.objects.all()
+    
+    context = {'users': users}
 
     return render(request, 'store/users.html', context)
 
