@@ -7,38 +7,42 @@ from .models import Order
 from django.contrib.auth.decorators import login_required
 
 def users(request):
-    Customer.objects.all().delete()
+    # Customer.objects.all().delete()
     
-    customerTwo = Customer(name='Jeff', age=28, gender='Male', email='jeff@example.com', address='San Diego City', status=False)
-    customerTwo.save()
+    # customerTwo = Customer(name='Jeff', age=28, gender='Male', email='jeff@example.com', address='San Diego City', status=False)
+    # customerTwo.save()
 
-    customerThree = Customer(name='Jet', age=21, gender='Male', email='jet@example.com', address='Manila City', status=True)
-    customerThree.save()
+    # customerThree = Customer(name='Jet', age=21, gender='Male', email='jet@example.com', address='Manila City', status=True)
+    # customerThree.save()
 
-    customerFour = Customer(name='Joana', age=29, gender='Female', email='joana@example.com', address='Manila City', status=False)
-    customerFour.save()
+    # customerFour = Customer(name='Joana', age=29, gender='Female', email='joana@example.com', address='Manila City', status=False)
+    # customerFour.save()
 
-    customerFive = Customer(name='Janelle', age=33, gender='Female', email='janelle@example.com', address='Alabang City', status=True)
-    customerFive.save()
+    # customerFive = Customer(name='Janelle', age=33, gender='Female', email='janelle@example.com', address='Alabang City', status=True)
+    # customerFive.save()
 
-    customerThree = Customer(name='Jason', age=35, gender='Male', email='jason@example.com', address='N/A', status=False)
-    customerThree.save()
+    # customerThree = Customer(name='Jason', age=35, gender='Male', email='jason@example.com', address='N/A', status=False)
+    # customerThree.save()
 
-    users = Customer.objects.all()
+    # users = Customer.objects.all()
 
-    context = {'users': users}
+    # context = {'users': users}
+
+    context = {}
 
     return render(request, 'store/users.html', context)
 
 def profile(request):
-    Customer.objects.all().delete()
+    # Customer.objects.all().delete()
 
-    customerOne = Customer(name='Jan', age=27, gender='Male', email='jan@example.com', address='Pasig City', status=True)
-    customerOne.save()
+    # customerOne = Customer(name='Jan', age=27, gender='Male', address='Pasig City', status=True)
+    # customerOne.save()
+
+    # context = {'customer': customerOne, 'user': current_user}
 
     current_user = request.user
-
-    context = {'customer': customerOne, 'user': current_user}
+    
+    context = {'user': current_user}
 
     return render(request, 'store/profile.html', context)
 

@@ -1,5 +1,7 @@
 # STEP 7 - CREATE YOUR MODELS
 from django.db import models
+#STEP 14 - CUSTOMIZE USER MODEL BY ASSOCIATING IT WITH CUSTOMER MODEL
+from django.contrib.auth.models import User
 
 # CREATE MIGRATION FILES (everytime you make changes in the models)
 # python manage.py makemigrations
@@ -10,10 +12,11 @@ from django.db import models
 # Customer - we give it a name
 # (models.Model) - in built in django, it's inheriting some basic functionality that all models will have
 class Customer(models.Model):
-    name = models.CharField(max_length=100)
-    age = models.IntegerField(default=0)
+    # STEP 14 - associating User and Customer model
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, null=True)
+    age = models.IntegerField()
     gender = models.CharField(max_length=100)
-    email = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
     status = models.BooleanField(default=True)
 
