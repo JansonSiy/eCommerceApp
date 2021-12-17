@@ -2,9 +2,8 @@
 
 {% block content %}
     <h1>Signup Form</h1>
-    <form action="{% url 'accounts:signup' %}" method='post'>
-        <!-- output the form key from the views -->
-        <!-- security, when you send the data to the server, you need to send a token with it, it's telling the app that the post request came from our app -->
+        <form action="{% url 'accounts:signup' %}" method='post'>
+        <!-- for security, when you send the data to the server, you need to send a token with it, it's telling the app that the post request came from our app -->
         {% csrf_token %}
         {{form}}
         <input type='submit' value='Register'>

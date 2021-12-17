@@ -3,10 +3,19 @@ from django.db import models
 #STEP 14 - CUSTOMIZE USER MODEL BY ASSOCIATING IT WITH PROFILE MODEL
 from django.contrib.auth.models import User
 
-# CREATE MIGRATION FILES (everytime you make changes in the models)
+# create migration files everytime you make changes in the models
 # python manage.py makemigrations
-# MIGRATING
 # python manage.py migrate
+
+# ORM bridges the gap between the code & the database
+# import first - from store.models import *
+# python mange.py shell - like a console
+# from store.models import Profile - importing a model (ex. from appName.model.pyFile import className)
+# Profile.objects.all() - show all objects
+# profile = Profile() - creating an instance
+# profile.name = "Jan" - adding data
+# profile.save() - saving data
+# Profile.objects.all()[0].name = "Jan" - example of calling a specific value
 
 # class - we represent the model using a class
 # Profile - we give it a name
@@ -20,18 +29,8 @@ class Profile(models.Model):
     address = models.CharField(max_length=100)
     status = models.BooleanField(default=True)
 
-# ORM bridges the gap between the code & the database
-# import first - from store.models import *
-# python mange.py shell - like a console
-# from store.models import Profile - importing a model (ex. from appName.model.pyFile import className)
-# Profile.objects.all() - show all objects
-# profile = Profile() - creating an instance
-# profile.name = "Jan" - adding data
-# profile.save() - saving data
-# Profile.objects.all()[0].name = "Jan" - example of calling a specific value
-
-# built in function that defines how a Profile is going to look in both admin and shell
-# self - instance of itself (instance of Profile)
+    # built in function that defines how a Profile is going to look in both admin and shell
+    # self - instance of itself (instance of Profile)
     def __str__(self):
         return self.name
 
@@ -47,14 +46,14 @@ class Product(models.Model):
         return self.name
 
 class Order(models.Model):
+    # reference - https://stackoverflow.com/questions/38388423/what-does-on-delete-do-on-django-models
     user = models.ForeignKey(User, default=None, on_delete=models.DO_NOTHING)
     product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
-    # reference - https://stackoverflow.com/questions/38388423/what-does-on-delete-do-on-django-models
     quantity = models.IntegerField(default=0)
     
     def __str__(self):
         return self.id
 
-# EXTRA REFERENCE
+# extra reference regarding .DateTimeField
 # date_ordered = models.DateTimeField(auto_now_add=True)
-# reference - https://stackoverflow.com/questions/51389042/difference-between-auto-now-and-auto-now-add/51389274
+# https://stackoverflow.com/questions/51389042/difference-between-auto-now-and-auto-now-add/51389274

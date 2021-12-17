@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Profile, Product, Order
 # STEP 13 - ADD MODELS TO ADMIN
+from .models import Profile, Product, Order
 
 # Register your models here.
 admin.site.register(Profile)

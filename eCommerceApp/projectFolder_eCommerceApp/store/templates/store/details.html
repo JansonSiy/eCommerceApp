@@ -1,7 +1,6 @@
 {% extends 'store/base_logged_in.html' %}
 
 {% load static %}
-
 <link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
 
 {% block content %}
@@ -10,10 +9,10 @@
             <img src="{{product.image}}" class="img-thumbnail" alt="img-thumbnail">
         </div>
         <div class="card-body">
-        <h5 class="card-title">{{ product.name }} ${{ product.price }}</h5>
-        <h6 class="card-title"><i>Stock ({{ product.quantity }})</i></h6>
-        <p class="card-text"><strong>Description: </strong>{{ product.description }}</p>
-        <a href="{% url 'store:mystore' %}" class="btn btn-success">Back to Store</a>
+            <h5 class="card-title">{{ product.name }} ${{ product.price }}</h5>
+            <h6 class="card-title"><i>Stock ({{ product.quantity }})</i></h6>
+            <p class="card-text"><strong>Description: </strong>{{ product.description }}</p>
+            <a href="{% url 'store:mystore' %}" class="btn btn-success">&#x2190; Continue Shopping</a>
         </div>
         <div class="card-footer text-muted">id.{{ product.id }}</div>
     </div>

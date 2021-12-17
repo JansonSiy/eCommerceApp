@@ -1,7 +1,6 @@
 {% extends 'store/base_logged_in.html' %}
 
 {% load static %}
-
 <link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
 
 {% block content %}
@@ -25,13 +24,13 @@
                 <tbody>
                     {% for user in users %}
                         <tr>
-                            <td>{{user.username}}</td>
-                            <td>{{user.first_name}}</td>
-                            <td>{{user.last_name}}</td>
-                            <td>{{user.email}}</td>
-                            <td>{{user.profile.age}}</td>
-                            <td>{{user.profile.gender}}</td>
-                            <td>{{user.profile.address}}</td>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.first_name }}</td>
+                            <td>{{ user.last_name }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.profile.age }}</td>
+                            <td>{{ user.profile.gender }}</td>
+                            <td>{{ user.profile.address }}</td>
                             <td>
                                 {% if user.profile.status == True %}
                                     <span class="active">Active</span>

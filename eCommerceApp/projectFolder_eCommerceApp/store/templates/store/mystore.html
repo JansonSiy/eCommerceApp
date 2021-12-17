@@ -3,7 +3,6 @@
 
 <!-- This loads the static folder css -->
 {% load static %}
-
 <link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
 
 {% block content %}
@@ -16,8 +15,9 @@
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
-                            <strong>{{product.name}} ${{product.price}}</strong>
-                            <br> <i>Stock ({{ product.quantity }})</i>
+                            <strong>{{ product.name }} ${{ product.price }}</strong>
+                            <br>
+                            <i>Stock ({{ product.quantity }})</i>
                         </li>
                         <li class="list-group-item">
                             <a class="btn btn-success" href="{% url 'store:details' product.id %}">View</a>
