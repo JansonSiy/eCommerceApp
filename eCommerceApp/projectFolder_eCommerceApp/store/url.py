@@ -13,6 +13,7 @@ urlpatterns = [
     path('users/', views.users, name='users'),
     # PRODUCT MODEL
     path('mystore/', views.mystore, name='mystore'),
+    path('<int:product_id>/details/', views.details, name='details'),
     # ORDER MODEL
     path('cart/', views.cart, name='cart')
 ]

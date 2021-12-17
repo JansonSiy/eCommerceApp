@@ -38,19 +38,20 @@ class Profile(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=100)
     price = models.IntegerField(default=0)
+    quantity = models.IntegerField(default=0)
     image = models.ImageField(null=True, blank=True)
     # blank attribute is False by default, since you set it to True, it will allow entry of an empty value
+    description = models.TextField(default=False)
 
     def __str__(self):
         return self.name
 
 class Order(models.Model):
-    Profile = models.ForeignKey(Profile, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, default=None, on_delete=models.DO_NOTHING)
     product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
     # reference - https://stackoverflow.com/questions/38388423/what-does-on-delete-do-on-django-models
     quantity = models.IntegerField(default=0)
-    complete = models.BooleanField(default=False)
-
+    
     def __str__(self):
         return self.id
 

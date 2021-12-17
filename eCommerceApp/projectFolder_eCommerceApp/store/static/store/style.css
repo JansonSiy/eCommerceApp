@@ -15,6 +15,11 @@ h1, .active {
     height: 50vh;
 }
 
+.imgSizeDetails {
+    height: 80vh;
+    width: 20%;
+}
+
 .base_logged_out {
     display: flex;
     align-items: center;

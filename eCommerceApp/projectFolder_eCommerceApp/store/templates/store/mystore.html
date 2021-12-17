@@ -14,12 +14,22 @@
             <div class="card">
                 <img src="{{product.image}}" class="card-img-top imgSize" alt="card-grid-image">
                 <div class="card-body">
-                    <h5 class="card-title">Item: {{product.name}}</h5>
-                    <button class="btn btn-success add-btn">Add to Cart</button>
-                    <button class="btn btn-success add-btn">+</button>
-                    <button class="btn btn-success add-btn">-</button>
-                    <h5 style="display: inline-block; float: right"><strong>Price: ${{product.price}}</strong></h5>
-                </div>  
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>{{product.name}} ${{product.price}}</strong>
+                            <br> <i>Stock ({{ product.quantity }})</i>
+                        </li>
+                        <li class="list-group-item">
+                            <a class="btn btn-success" href="{% url 'store:details' product.id %}">View</a>
+                            <a class="btn btn-success" href="{% url 'store:details' product.id %}">Add to Cart</a>
+                        </li>
+                    </ul>
+                    <!-- <form action="{% url 'store:mystore' %}" method=POST>
+                        {% csrf_token %}
+                        <input id='quantity' type="number" value='quantity'>
+                        <input type='submit' value='Add to Cart' class="btn btn-success">
+                    </form> -->
+                </div>
             </div>
             <br>
         </div>
