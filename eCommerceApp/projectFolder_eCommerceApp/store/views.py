@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 # context - A dictionary of values to add to the template context. By default, this is an empty dictionary. If a value in the dictionary is callable, the view will call it just before rendering the template.
 
 def users(request):
-    current_user = request.user 
+    current_user = request.user
     users = User.objects.all()
     
     context = {'users': users, 'current_user': current_user}
@@ -81,9 +81,10 @@ def cart(request):
     return render(request, 'store/cart.html', context)
 
 def details(request, product_id):
+    current_user = request.user
     product = Product.objects.get(pk=product_id)
 
-    context = {'product': product}
+    context = {'product': product, 'current_user': current_user}
 
     return render(request, 'store/details.html', context)
 

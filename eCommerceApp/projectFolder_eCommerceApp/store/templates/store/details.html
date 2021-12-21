@@ -4,17 +4,20 @@
 <link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
 
 {% block content %}
+    <span class="badge bg-success margin white">user: {{ current_user.username }}</span>
     <div class="card">
-        <div class="card-header">
+        <div class="card-header centerImg">
             <img src="{{product.image}}" class="img-thumbnail" alt="img-thumbnail">
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{ product.name }} ${{ product.price }}</h5>
-            <h6 class="card-title"><i>Stock ({{ product.quantity }})</i></h6>
-            <p class="card-text"><strong>Description: </strong>{{ product.description }}</p>
+            <div class="alert alert-success textCenter" role="alert"><strong>{{ product.name }} ${{ product.price }}</strong></div>
+            <p class="card-text">
+                <i>Stock ({{ product.quantity }})</i>
+                <br>
+                Description: {{ product.description }}</p>
             <a href="{% url 'store:mystore' %}" class="btn btn-success">&#x2190; Continue Shopping</a>
-            <a class="btn btn-success" href="{% url 'store:addToCart' product.id %}">Add to Cart</a>
+            <a class="btn btn-success" href="{% url 'store:addToCart' product.id %}">&#x2190; Add to Cart</a>
         </div>
-        <div class="card-footer text-muted">id.{{ product.id }}</div>
+        <div class="card-footer text-muted"><i>id.{{ product.id }}</i></div>
     </div>
 {% endblock content %}
