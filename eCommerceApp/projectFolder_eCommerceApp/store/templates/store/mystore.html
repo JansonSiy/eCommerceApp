@@ -6,33 +6,32 @@
 <link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
 
 {% block content %}
-    <span class="badge bg-success margin white">user: {{ user.username }}</span>
+    <span class="badge bg-success margin white">user: {{ current_user.username }}</span>
     <div class="row row-cols-1 row-cols-sm-3 g-3">
         {% for product in products %}
-        <div class="col">
-            <div class="card">
-                <img src="{{product.image}}" class="card-img-top imgSize" alt="card-grid-image">
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <strong>{{ product.name }} ${{ product.price }}</strong>
-                            <br>
-                            <i>Stock ({{ product.quantity }})</i>
-                        </li>
-                        <li class="list-group-item">
-                            <a class="btn btn-success" href="{% url 'store:details' product.id %}">View</a>
-                            <a class="btn btn-success" href="{% url 'store:addToCart' product.id %}">Add to Cart</a>
-                        </li>
-                    </ul>
-                    <!-- <form action="{% url 'store:mystore' %}" method=POST>
-                        {% csrf_token %}
-                        <input id='quantity' type="number" value='quantity'>
-                        <input type='submit' value='Add to Cart' class="btn btn-success">
-                    </form> -->
+            <div class="col">
+                <div class="card">
+                    <div class="alert alert-success textCenter" role="alert"><strong>{{ product.name }}</strong></div>
+                    <img src="{{product.image}}" class="card-img-top imgSize" alt="card-grid-image">
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> 
+                                <strong>Price: ${{ product.price }}</strong>
+                                <br>
+                                <i>Stock ({{ product.quantity }})</i>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="center">
+                                    <a class="btn btn-success" href="{% url 'store:details' product.id %}">Product Details</a>
+                                    <a class="btn btn-success" href="{% url 'store:addToCart' product.id %}">Add To Cart</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="alert alert-info textCenter" role="alert">Best Seller! Buy Now!</div>
+                    </div>
                 </div>
+                <br>
             </div>
-            <br>
-        </div>
         {% endfor %}
     </div>
 {% endblock content %}

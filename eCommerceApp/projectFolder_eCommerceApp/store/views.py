@@ -52,7 +52,7 @@ def mystore(request):
     current_user = request.user
     products = Product.objects.all()
 
-    context = {'products': products, 'user': current_user}
+    context = {'products': products, 'current_user': current_user}
 
     return render(request, 'store/mystore.html', context)
 

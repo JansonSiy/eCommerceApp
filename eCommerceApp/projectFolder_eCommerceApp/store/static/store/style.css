@@ -12,7 +12,8 @@ h1, .active {
 }
 
 .imgSize {
-    height: 50vh;
+    height: 45vh;
+    width: 80%;
 }
 
 .imgSizeDetails {
@@ -33,4 +34,15 @@ h1, .active {
 
 .white {
     color: white;
+}
+
+.textCenter {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
