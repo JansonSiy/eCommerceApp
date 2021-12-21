@@ -71,13 +71,38 @@ def mystore(request):
 # productSix.save()
 
 def cart(request):
-    context = {}
+    current_user = request.user
+    myOrders = Order.objects.filter(current_user=current_user)
+
+    context = {'orders': myOrders}
+
     return render(request, 'store/cart.html', context)
 
 def details(request, product_id):
     product = Product.objects.get(pk=product_id)
+
     context = {'product': product}
+
     return render(request, 'store/details.html', context)
+
+def addToCart(request, product_id):
+    current_user = request.user
+    product = Product.objects.get(pk=product_id)
+    total_price = product.price * 2
+ 
+    Order.objects.create(current_user=current_user, product_name=product.name, product_price=product.price, quantity=2, total_price=total_price, shipping_address=current_user.profile.address)
+
+    currentOrder = Order.objects.last()
+
+    context = {'order': currentOrder, 'product': product}
+
+    return render(request, 'store/addToCart.html', context)
+
+    # current_user = request.user
+    # product = Product.objects.get(pk=product_id)
+    # total_price = product.price * 2
+
+    # context = {'user': current_user, 'product': product, 'total_price': total_price}
 
 # shorthand for template rendering - from django.shortcuts import render_template
 # def store(request):

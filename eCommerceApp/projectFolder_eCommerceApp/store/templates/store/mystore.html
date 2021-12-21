@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
 
 {% block content %}
-    <span class="badge bg-success margin">user: {{user.username}}</span>
+    <span class="badge bg-success margin white">user: {{ user.username }}</span>
     <div class="row row-cols-1 row-cols-sm-3 g-3">
         {% for product in products %}
         <div class="col">
@@ -21,7 +21,7 @@
                         </li>
                         <li class="list-group-item">
                             <a class="btn btn-success" href="{% url 'store:details' product.id %}">View</a>
-                            <a class="btn btn-success" href="{% url 'store:details' product.id %}">Add to Cart</a>
+                            <a class="btn btn-success" href="{% url 'store:addToCart' product.id %}">Add to Cart</a>
                         </li>
                     </ul>
                     <!-- <form action="{% url 'store:mystore' %}" method=POST>

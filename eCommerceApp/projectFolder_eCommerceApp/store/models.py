@@ -47,12 +47,17 @@ class Product(models.Model):
 
 class Order(models.Model):
     # reference - https://stackoverflow.com/questions/38388423/what-does-on-delete-do-on-django-models
-    user = models.ForeignKey(User, default=None, on_delete=models.DO_NOTHING)
-    product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
-    quantity = models.IntegerField(default=0)
+    user = models.ForeignKey(User, null=True, on_delete=models.DO_NOTHING)
+    product = models.ForeignKey(Product, null=True, on_delete=models.DO_NOTHING)
+    current_user = models.CharField(max_length=100, null=True)
+    product_name = models.CharField(max_length=100, null=True)
+    product_price = models.IntegerField(default=0, null=True)
+    quantity = models.IntegerField(default=0, null=True)
+    total_price = models.IntegerField(default=0, null=True)
+    shipping_address = models.CharField(max_length=100, null=True)
     
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 # extra reference regarding .DateTimeField
 # date_ordered = models.DateTimeField(auto_now_add=True)

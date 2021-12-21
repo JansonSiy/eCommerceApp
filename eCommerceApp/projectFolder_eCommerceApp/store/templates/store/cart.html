@@ -6,27 +6,31 @@
 {% block content %}
     <br>
     <div class="card">
-        <h1 class="card-header">Order List</h1>
+        <h1 class="card-header">My Cart</h1>
         <div class="card-body">
-            <table>
-                <tr>
-                    <th>Customer</th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total Price</th>
-                    <th>Shipping Address</th>
-                    <th>Status</th>
-                </tr>
-                <tr>
-                    <td>@Customer.name</td>
-                    <td>@Product.name</td>
-                    <td>@Product.price</td>
-                    <td>@Order.quantity</td>
-                    <td>price*quantity</td>
-                    <td>@Customer.address</td>
-                    <td>@Order.complete</td>
-                </tr> 
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">User</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Shipping Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.current_user }}</td>
+                            <td>{{ order.product_name }}</td>
+                            <td>{{ order.product_price }}</td>
+                            <td>2</td>
+                            <td>{{ order.total_price }}</td>
+                            <td>{{ order.shipping_address }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
             </table>
             <hr>
             <a class="btn btn-success" href="{% url 'store:mystore' %}">&#x2190; Continue Shopping</a>
