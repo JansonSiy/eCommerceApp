@@ -33,8 +33,9 @@ def users(request):
 
 def profile(request):
     current_user = request.user
+    myOrders = Order.objects.filter(current_user=current_user)
 
-    context = {'user': current_user}
+    context = {'current_user': current_user, 'myOrders': myOrders}
 
     return render(request, 'store/profile.html', context)
 

@@ -9,30 +9,53 @@
         <h1 class="card-header">My Profile</h1>
         <div class="card-body">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Username: </strong>{{user.username}}</li>
-                <li class="list-group-item"><strong>First Name: </strong>{{user.first_name}}</li>
-                <li class="list-group-item"><strong>Last Name: </strong>{{user.last_name}}</li>
-                <li class="list-group-item"><strong>Email: </strong>{{user.email}}</li>
-                <li class="list-group-item"><strong>Age: </strong>{{user.profile.age}}</li>
-                <li class="list-group-item"><strong>Gender: </strong>{{user.profile.gender}}</li>
-                <li class="list-group-item"><strong>Address: </strong>{{user.profile.address}}</li>
+                <li class="list-group-item"><strong>Username: </strong>{{ current_user.username }}</li>
+                <li class="list-group-item"><strong>First Name: </strong>{{ current_user.first_name }}</li>
+                <li class="list-group-item"><strong>Last Name: </strong>{{ current_user.last_name }}</li>
+                <li class="list-group-item"><strong>Email: </strong>{{ current_user.email }}</li>
+                <li class="list-group-item"><strong>Age: </strong>{{ current_user.profile.age }}</li>
+                <li class="list-group-item"><strong>Gender: </strong>{{ current_user.profile.gender }}</li>
+                <li class="list-group-item"><strong>Address: </strong>{{ current_user.profile.address }}</li>
                 <li class="list-group-item"><strong>Status: </strong>
-                    {% if user.profile.status == True %}
+                    {% if current_user.profile.status == True %}
                         <span class="active">Active</span>
-                    {% elif user.profile.status == False %}
+                    {% elif current_user.profile.status == False %}
                         <span class="inactive">Inactive</span>
                     {% else %}
                         <span class="pending">N/A</span>
                     {% endif %}
                 </li>
             </ul>
-            <br>
-            <a class="btn btn-success" href="{% url 'store:mystore' %}">&#x2190; Continue Shopping</a>
-            <a class="btn btn-success" href="{% url 'store:cart' %}">&#x2190; Go to Cart</a>
         </div>
         <h1 class="card-header">Transaction History</h1>
         <div class="card-body">
-            <h5>No logs yet.</h5>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">User</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total Price</th>
+                        <th scope="col">Shipping Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for myOrder in myOrders %}
+                        <tr>
+                            <td>{{ myOrder.current_user }}</td>
+                            <td>{{ myOrder.product_name }}</td>
+                            <td>{{ myOrder.product_price }}</td>
+                            <td>{{ myOrder.quantity }}</td>
+                            <td>{{ myOrder.total_price }}</td>
+                            <td>{{ myOrder.shipping_address }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br>
+            <a class="btn btn-success" href="{% url 'store:mystore' %}">&#x2190; Continue Shopping</a>
+            <a class="btn btn-success" href="{% url 'store:cart' %}">&#x2190; Go to Cart</a>
         </div>
     </div>
 {% endblock content %}
