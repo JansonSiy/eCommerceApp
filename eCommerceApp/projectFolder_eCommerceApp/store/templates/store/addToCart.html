@@ -4,31 +4,27 @@
 <link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
 
 {% block content %}
-    <br>
+    <span class="badge bg-success margin white">user: {{ order.current_user }}</span>
+    <div class="alert alert-success textCenter" role="alert"><strong>Item Added: {{ order.product_name }}</strong></div>
     <div class="card">
-        <h1 class="card-header">Item Added!</h1>
         <div class="card-body">
-            <div class="card-header">
+            <div class="card-header centerImg">
                 <img src="{{ product.image }}" class="img-thumbnail" alt="img-thumbnail">
             </div>
-            <div class="card-body">
-                <p class="card-text">
-                    <strong>Product:</strong> {{ order.product_name }}
-                    <br>
-                    <strong>Computation:</strong> ${{ order.product_price }} <i>(price)</i> * {{ order.quantity }} <i>(quantity)</i> = {{ order.total_price }} <i>(total price)</i>
-                    <br>
-                    <strong>Shipping Address:</strong> {{ order.shipping_address }}
+            <div class="card-body centerImg column">
+                <p class="card-text textCenterTwo">
+                    <i>
+                        Computation: ${{ order.product_price }} (price) * {{ order.quantity }} (quantity) = ${{ order.total_price }} (total price)
+                        <br>
+                        Shipping Address:{{ order.shipping_address }}
+                    </i>
                 </p>
+                <div>
+                    <a class="btn btn-success" href="{% url 'store:mystore' %}">&#x2190; Continue Shopping</a>
+                    <a class="btn btn-success" href="{% url 'store:profile' %}">&#x2190; Go to Profile</a>
+                </div>
             </div>
-            <div class="card-footer text-muted">
-                <a class="btn btn-success" href="{% url 'store:mystore' %}">&#x2190; Continue Shopping</a>
-                <a class="btn btn-success" href="{% url 'store:profile' %}">&#x2190; Go to Profile</a>
-                <br>
-                <span class="badge bg-success margin white">user: {{ order.current_user }} id.{{ product.id }}</span>
-            </div>
+            <div class="card-footer text-muted textCenterTwo"><i>id.{{ product.id }}</i></div>
         </div>
     </div>
 {% endblock content %}
-
-
-

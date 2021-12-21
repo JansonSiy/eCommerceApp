@@ -9,15 +9,18 @@
         <div class="card-header centerImg">
             <img src="{{product.image}}" class="img-thumbnail" alt="img-thumbnail">
         </div>
-        <div class="card-body">
-            <div class="alert alert-success textCenter" role="alert"><strong>{{ product.name }} ${{ product.price }}</strong></div>
-            <p class="card-text">
+        <div class="alert alert-success textCenter" role="alert"><strong>{{ product.name }} ${{ product.price }}</strong></div>
+        <div class="card-body centerImg column">
+            <p class="card-text textCenterTwo">
                 <i>Stock ({{ product.quantity }})</i>
                 <br>
-                Description: {{ product.description }}</p>
-            <a href="{% url 'store:mystore' %}" class="btn btn-success">&#x2190; Continue Shopping</a>
-            <a class="btn btn-success" href="{% url 'store:addToCart' product.id %}">&#x2190; Add to Cart</a>
+                Description: {{ product.description }}
+            </p>
+            <div>
+                <a href="{% url 'store:mystore' %}" class="btn btn-success">&#x2190; Continue Shopping</a>
+                <a class="btn btn-success" href="{% url 'store:addToCart' product.id %}">&#x2190; Add to Cart</a>
+            </div>
         </div>
-        <div class="card-footer text-muted"><i>id.{{ product.id }}</i></div>
+        <div class="card-footer text-muted textCenterTwo"><i>id.{{ product.id }}</i></div>
     </div>
 {% endblock content %}

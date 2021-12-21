@@ -12,7 +12,7 @@ h1, .active {
 }
 
 .imgSize {
-    height: 45vh;
+    height: 50vh;
     width: 80%;
 }
 
@@ -41,6 +41,10 @@ h1, .active {
     text-transform: uppercase;
 }
 
+.textCenterTwo {
+    text-align: center;
+}
+
 .center {
     display: flex;
     align-items: center;
@@ -51,4 +55,8 @@ h1, .active {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.column {
+    flex-direction: column;
 }
