@@ -9,10 +9,11 @@ from django.contrib.auth.decorators import login_required
 # template_name - The full name of a template to use or sequence of template names. If a sequence is given, the first template that exists will be used. See the template loading documentation for more information on how templates are found.
 # context - A dictionary of values to add to the template context. By default, this is an empty dictionary. If a value in the dictionary is callable, the view will call it just before rendering the template.
 
-def users(request):    
+def users(request):
+    current_user = request.user 
     users = User.objects.all()
     
-    context = {'users': users}
+    context = {'users': users, 'current_user': current_user}
 
     return render(request, 'store/users.html', context)
 
@@ -75,7 +76,7 @@ def cart(request):
     current_user = request.user
     myOrders = Order.objects.filter(current_user=current_user)
 
-    context = {'orders': myOrders}
+    context = {'orders': myOrders, 'current_user': current_user}
 
     return render(request, 'store/cart.html', context)
 
