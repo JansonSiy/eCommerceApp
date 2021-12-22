@@ -13,7 +13,7 @@ def users(request):
     current_user = request.user
     users = User.objects.all()
     
-    context = {'users': users, 'current_user': current_user}
+    context = {'current_user': current_user, 'users': users}
 
     return render(request, 'store/users.html', context)
 
@@ -53,7 +53,7 @@ def mystore(request):
     current_user = request.user
     products = Product.objects.all()
 
-    context = {'products': products, 'current_user': current_user}
+    context = {'current_user': current_user, 'products': products}
 
     return render(request, 'store/mystore.html', context)
 
@@ -76,7 +76,7 @@ def cart(request):
     current_user = request.user
     myOrders = Order.objects.filter(current_user=current_user)
 
-    context = {'myOrders': myOrders, 'current_user': current_user}
+    context = {'current_user': current_user, 'myOrders': myOrders}
 
     return render(request, 'store/cart.html', context)
 
@@ -84,20 +84,20 @@ def details(request, product_id):
     current_user = request.user
     product = Product.objects.get(pk=product_id)
 
-    context = {'product': product, 'current_user': current_user}
+    context = {'current_user': current_user, 'product': product}
 
     return render(request, 'store/details.html', context)
 
 def addToCart(request, product_id):
     current_user = request.user
     product = Product.objects.get(pk=product_id)
-    total_price = product.price * 2
+    total_price = product.price * 1
  
-    Order.objects.create(current_user=current_user, product_name=product.name, product_price=product.price, quantity=2, total_price=total_price, shipping_address=current_user.profile.address)
+    Order.objects.create(current_user=current_user, product_name=product.name, product_price=product.price, quantity=1, total_price=total_price, shipping_address=current_user.profile.address)
 
     currentOrder = Order.objects.last()
 
-    context = {'order': currentOrder, 'product': product}
+    context = {'current_user': current_user, 'product': product, 'order': currentOrder}
 
     return render(request, 'store/addToCart.html', context)
 

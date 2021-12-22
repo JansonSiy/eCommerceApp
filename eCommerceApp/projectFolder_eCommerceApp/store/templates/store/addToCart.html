@@ -4,7 +4,8 @@
 <link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
 
 {% block content %}
-    <span class="badge bg-success margin white">user: {{ order.current_user }}</span>
+    <span class="badge bg-success margin white">user: {{ current_user.username }}</span>
+    <!-- <span class="badge bg-success margin white">user: {{ order.current_user }}</span> -->
     <div class="alert alert-success textCenter" role="alert"><strong>Item Added: {{ order.product_name }}</strong></div>
     <div class="card">
         <div class="card-body">
