@@ -1,10 +1,13 @@
 {% extends 'accounts/base_logged_out.html' %}
 
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
+
 {% block content %}
-    <h1>Login Form</h1>
-    <form action="{% url 'accounts:login' %}" method='post'>
+    <div class="alert alert-primary center" role="alert">Login Form</div>
+    <form action="{% url 'accounts:login' %}" method='post' class='center column'>
         {% csrf_token %}
-        {{form}}
-        <input type='submit' value='Login' class="btn-success">
+        {{ form }}
+        <input type='submit' value='Login' class='btn btn-success my-2 my-sm-0'>
     </form>
 {% endblock %}

@@ -1,11 +1,14 @@
 {% extends 'accounts/base_logged_out.html' %}
 
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
+
 {% block content %}
-    <h1>Signup Form</h1>
-        <form action="{% url 'accounts:signup' %}" method='post'>
+    <div class="alert alert-primary center" role="alert">Signup Form</div>
+    <form action="{% url 'accounts:signup' %}" method='post' class='center column' novalidate>
         <!-- for security, when you send the data to the server, you need to send a token with it, it's telling the app that the post request came from our app -->
         {% csrf_token %}
-        {{form}}
-        <input type='submit' value='Register'>
+        {{ form }}
+        <input type='submit' class='btn btn-success my-2 my-sm-0' value='Register'>
     </form>
 {% endblock %}

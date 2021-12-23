@@ -1,7 +1,10 @@
 {% extends 'accounts/base_logged_out.html' %}
 
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
+
 {% block content %}
     <div class="alert alert-success bye" role="alert">
-        Bye for now! Hope to see you soon!
+        Bye for now &#128546; Hope to see you soon!
     </div>
 {% endblock %}

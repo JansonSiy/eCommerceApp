@@ -30,6 +30,8 @@ h1, .active {
 
 .bye {
     text-align: center;
+    font-size: 3rem;
+    margin-top: 30vh;
 }
 
 .white {
@@ -59,4 +61,35 @@ h1, .active {
 
 .column {
     flex-direction: column;
+}
+
+/* do not touch for UserCreationForm & AuthenticationForm */
+.errorlist {
+    list-style: none;
+    font-style: italic;
+    color: red;
+}
+
+.marginBottom {
+    margin-bottom: 10px;
+}
+
+.marginLeft {
+    margin-left: 35px;
+}
+
+.width {
+    width: 50%;
+}
+
+.navbarLogout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+::placeholder {
+    text-align: center;
+    font-style: italic;
 }

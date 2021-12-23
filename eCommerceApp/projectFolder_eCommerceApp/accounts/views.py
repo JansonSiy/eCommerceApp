@@ -9,6 +9,7 @@ from django.contrib.auth import login, logout
 # don't forget to import both login and logout
 # STEP 12 - UPDATE USER MODEL & FORM
 from .forms import RegisterUserForm
+from .forms import LoginForm
 
 def signup_view(request):
     # if it's a post request
@@ -36,7 +37,8 @@ def signup_view(request):
 
 def login_view(request):
     if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
+        # latest update: substituted AuthenticationForm with LoginForm from forms.py
+        form = LoginForm(data=request.POST)
         # pass the data here for validation, data is equals to request.POST, this is the syntax for this parameter
         if form.is_valid():
             # log in the user using .get_user()
@@ -45,7 +47,7 @@ def login_view(request):
             login(request, user)
             return redirect('store:mystore')
     else:
-        form = AuthenticationForm()
+        form = LoginForm()
     
     context = {'form': form}
 
