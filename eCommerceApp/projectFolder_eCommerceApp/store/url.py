@@ -8,9 +8,11 @@ from . import views
 app_name = 'store'
 
 urlpatterns = [
-    # User & Profile model
-    path('profile/', views.profile, name='profile'),
+    # User model
     path('users/', views.users, name='users'),
+    # Profile model
+    path('profile/', views.profile, name='profile'),
+    path('<int:user_id>/activate/', views.activate, name='activate'),
     # Product model
     path('mystore/', views.mystore, name='mystore'),
     path('<int:product_id>/details/', views.details, name='details'),

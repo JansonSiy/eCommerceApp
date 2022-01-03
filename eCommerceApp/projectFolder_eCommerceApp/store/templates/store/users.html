@@ -33,9 +33,9 @@
                             <td>{{ user.profile.address }}</td>
                             <td>
                                 {% if user.profile.status == True %}
-                                    <span class="active">Active</span>
+                                    <a class="badge bg-success white" href="{% url 'store:activate' user.id %}">Activated</a>
                                 {% elif user.profile.status == False %}
-                                    <span class="inactive">Inactive</span>
+                                    <a class="badge bg-warning text-dark" href="{% url 'store:activate' user.id %}">Deactivated</a>
                                 {% else %}
                                     <span class="pending">N/A</span>
                                 {% endif %}

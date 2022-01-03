@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 # ORM bridges the gap between the code & the database
 # import first - from store.models import *
-# python mange.py shell - like a console
+# python manage.py shell - like a console
 # from store.models import Profile - importing a model (ex. from appName.model.pyFile import className)
 # Profile.objects.all() - show all objects
 # profile = Profile() - creating an instance

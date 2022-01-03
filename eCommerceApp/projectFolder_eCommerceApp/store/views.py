@@ -9,12 +9,15 @@ from django.contrib.auth.decorators import login_required
 # template_name - The full name of a template to use or sequence of template names. If a sequence is given, the first template that exists will be used. See the template loading documentation for more information on how templates are found.
 # context - A dictionary of values to add to the template context. By default, this is an empty dictionary. If a value in the dictionary is callable, the view will call it just before rendering the template.
 
+# def users(request, profile_id):
 def users(request):
     current_user = request.user
     users = User.objects.all()
-    
-    context = {'current_user': current_user, 'users': users}
+    # profile = Profile.objects.get(pk=profile_id)
 
+    context = {'current_user': current_user, 'users': users }
+    # context = {'current_user': current_user, 'users': users, 'profile': profile }
+    
     return render(request, 'store/users.html', context)
 
 # Customer.objects.all().delete()
@@ -106,6 +109,24 @@ def addToCart(request, product_id):
     # total_price = product.price * 2
 
     # context = {'user': current_user, 'product': product, 'total_price': total_price}
+
+def activate(request, user_id):
+    current_user = request.user
+    user = User.objects.get(pk=user_id)
+
+    # associated model (you need to do this)
+    userProfile = user.profile
+
+    if userProfile.status == False:
+        userProfile.status = True
+        userProfile.save()
+    else:
+        userProfile.status = False
+        userProfile.save()
+
+    context = {'current_user': current_user, 'user': user}
+
+    return render(request, 'store/activate.html', context)
 
 # shorthand for template rendering - from django.shortcuts import render_template
 # def store(request):

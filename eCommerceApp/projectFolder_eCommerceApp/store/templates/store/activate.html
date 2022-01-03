@@ -1,0 +1,18 @@
+{% extends 'store/base_logged_in.html' %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
+
+{% block content %}
+    {% if user.profile.status == True %}
+        <div class="alert alert-success" role="alert">
+            Success: You have activated <strong>{{ user.username }}</strong>.
+        </div>
+    {% else %}
+        <div class="alert alert-danger" role="alert">
+            Warning: You have deactivated <strong>{{ user.username }}</strong>.
+        </div>
+    {% endif %}
+
+    <a class="btn btn-success marginLeft" href="{% url 'store:users' %}">&#x2190; Back</a>
+{% endblock content %}
