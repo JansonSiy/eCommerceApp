@@ -5,33 +5,39 @@
 
 {% block content %}
     <span class="badge bg-success margin white">user: {{ current_user.username }}</span>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        {% for myOrder in myOrders %}
-            <div class="col">
-                <div class="card">
-                    <div class="card-header alert alert-success textCenter" role="alert"><strong>{{ myOrder.product_name }}</strong></div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item textCenterTwo">
-                                <div class="alert alert-info textCenterTwo" role="alert">Order Details</div>
-                                {{ myOrder.product_name }} ${{ myOrder.product_price }} 
-                            </li>
-                            <li class="list-group-item textCenterTwo">
-                                <div class="alert alert-warning" role="alert">Computation</div>
-                                ${{ myOrder.product_price }} (price) * {{ myOrder.quantity }} (quantity) = ${{ myOrder.total_price }} (total price)
-                            </li>
-                            <li class="list-group-item textCenterTwo">
-                                <div class="alert alert-warning" role="alert">Shipping Address</div>
-                                {{ myOrder.shipping_address }}
-                            </li>
-                        </ul>
+    <span class="badge bg-success margin white">order_count: {{ orderCount }}</span>
+    {% if orderCount == 0 %}
+        <div class="alert alert-primary" role="alert">
+            Oops! No order placed yet!
+        </div>
+    {% else %}
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for myOrder in myOrders %}
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header alert alert-success textCenter" role="alert"><strong>{{ myOrder.product_name }}</strong></div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item textCenterTwo">
+                                    <div class="alert alert-info textCenterTwo" role="alert">Order Details</div>
+                                    {{ myOrder.product_name }} ${{ myOrder.product_price }} 
+                                </li>
+                                <li class="list-group-item textCenterTwo">
+                                    <div class="alert alert-warning" role="alert">Computation</div>
+                                    ${{ myOrder.product_price }} (price) * {{ myOrder.quantity }} (quantity) = ${{ myOrder.total_price }} (total price)
+                                </li>
+                                <li class="list-group-item textCenterTwo">
+                                    <div class="alert alert-warning" role="alert">Shipping Address</div>
+                                    {{ myOrder.shipping_address }}
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-
+                    <br>
                 </div>
-                <br>
-            </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
+    {% endif %}
     <div class="margin">
         <a class="btn btn-success" href="{% url 'store:mystore' %}">&#x2190; Continue Shopping</a>
         <a class="btn btn-success" href="{% url 'store:profile' %}">&#x2190; Go to Profile</a>

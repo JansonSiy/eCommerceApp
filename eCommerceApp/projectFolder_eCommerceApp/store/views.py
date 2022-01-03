@@ -78,8 +78,9 @@ def mystore(request):
 def cart(request):
     current_user = request.user
     myOrders = Order.objects.filter(current_user=current_user)
+    orderCount = Order.objects.filter(current_user=current_user).count()
 
-    context = {'current_user': current_user, 'myOrders': myOrders}
+    context = {'current_user': current_user, 'myOrders': myOrders, 'orderCount': orderCount}
 
     return render(request, 'store/cart.html', context)
 
