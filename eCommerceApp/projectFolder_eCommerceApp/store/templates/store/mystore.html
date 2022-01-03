@@ -6,32 +6,38 @@
 <link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
 
 {% block content %}
-    <span class="badge bg-success margin white">user: {{ current_user.username }}</span>
-    <div class="row row-cols-1 row-cols-sm-3 g-3">
-        {% for product in products %}
-            <div class="col">
-                <div class="card">
-                    <div class="alert alert-success textCenter" role="alert"><strong>{{ product.name }}</strong></div>
-                    <img src="{{product.image}}" class="card-img-top imgSize" alt="card-grid-image">
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"> 
-                                <strong>Price: ${{ product.price }}</strong>
-                                <br>
-                                <i>Stock ({{ product.quantity }})</i>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="center">
-                                    <a class="btn btn-success" href="{% url 'store:details' product.id %}">Product Details</a>
-                                    <a class="btn btn-success" href="{% url 'store:addToCart' product.id %}">Add To Cart</a>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="alert alert-info textCenter" role="alert">Best Seller! Buy Now!</div>
+    {% if current_user.profile.status == True %}
+        <span class="badge bg-success margin white">user: {{ current_user.username }}</span>
+        <div class="row row-cols-1 row-cols-sm-3 g-3">
+            {% for product in products %}
+                <div class="col">
+                    <div class="card">
+                        <div class="alert alert-success textCenter" role="alert"><strong>{{ product.name }}</strong></div>
+                        <img src="{{product.image}}" class="card-img-top imgSize" alt="card-grid-image">
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"> 
+                                    <strong>Price: ${{ product.price }}</strong>
+                                    <br>
+                                    <i>Stock ({{ product.quantity }})</i>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="center">
+                                        <a class="btn btn-success" href="{% url 'store:details' product.id %}">Product Details</a>
+                                        <a class="btn btn-success" href="{% url 'store:addToCart' product.id %}">Add To Cart</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="alert alert-info textCenter" role="alert">Best Seller! Buy Now!</div>
+                        </div>
                     </div>
+                    <br>
                 </div>
-                <br>
-            </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-danger" role="alert">
+            Please contact administrator to activate your account.
+        </div>
+    {% endif %}
 {% endblock content %}
