@@ -29,30 +29,36 @@
         </div>
         <h1 class="card-header">Transaction History</h1>
         <div class="card-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">User</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Total Price</th>
-                        <th scope="col">Shipping Address</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for myOrder in myOrders %}
+            {% if orderCount == 0 %}
+                <div class="alert alert-primary" role="alert">
+                    Oops! No transactions made yet!
+                </div>
+            {% else %}
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>{{ myOrder.current_user }}</td>
-                            <td>{{ myOrder.product_name }}</td>
-                            <td>{{ myOrder.product_price }}</td>
-                            <td>{{ myOrder.quantity }}</td>
-                            <td>{{ myOrder.total_price }}</td>
-                            <td>{{ myOrder.shipping_address }}</td>
+                            <th scope="col">User</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total Price</th>
+                            <th scope="col">Shipping Address</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {% for myOrder in myOrders %}
+                            <tr>
+                                <td>{{ myOrder.current_user }}</td>
+                                <td>{{ myOrder.product_name }}</td>
+                                <td>{{ myOrder.product_price }}</td>
+                                <td>{{ myOrder.quantity }}</td>
+                                <td>{{ myOrder.total_price }}</td>
+                                <td>{{ myOrder.shipping_address }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
             <br>
             <a class="btn btn-success" href="{% url 'store:mystore' %}">&#x2190; Continue Shopping</a>
             <a class="btn btn-success" href="{% url 'store:cart' %}">&#x2190; Go to Cart</a>
