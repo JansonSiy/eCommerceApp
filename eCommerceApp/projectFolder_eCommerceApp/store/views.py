@@ -106,12 +106,6 @@ def addToCart(request, product_id):
 
     return render(request, 'store/addToCart.html', context)
 
-    # current_user = request.user
-    # product = Product.objects.get(pk=product_id)
-    # total_price = product.price * 2
-
-    # context = {'user': current_user, 'product': product, 'total_price': total_price}
-
 def activate(request, user_id):
     current_user = request.user
     user = User.objects.get(pk=user_id)
@@ -129,6 +123,28 @@ def activate(request, user_id):
     context = {'current_user': current_user, 'user': user}
 
     return render(request, 'store/activate.html', context)
+
+def checkout(request, order_id):
+    current_user = request.user
+    order = Order.objects.get(pk=order_id)
+    
+    # quantity of an order is 1 (by default)
+    orderQuantity = order.quantity
+
+    # targeting the product
+    product = Product.objects.get(name=order.product_name)
+
+    # getting the quantity of the product = 5
+    productQuantity = product.quantity
+
+    # 5 - 1 = 4
+    newProductQuantity = productQuantity - orderQuantity
+    product.quantity = newProductQuantity
+    product.save()
+
+    context = {'current_user': current_user, 'order': order}
+
+    return render(request, 'store/checkout.html', context)
 
 # shorthand for template rendering - from django.shortcuts import render_template
 # def store(request):

@@ -30,6 +30,9 @@
                                     <div class="alert alert-warning" role="alert">Shipping Address</div>
                                     {{ myOrder.shipping_address }}
                                 </li>
+                                <li class="list-group-item textCenterTwo">
+                                    <a class="btn btn-success" href="{% url 'store:checkout' myOrder.id %}">Checkout</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
