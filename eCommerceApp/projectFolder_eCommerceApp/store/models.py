@@ -47,6 +47,7 @@ class Product(models.Model):
 
 class Order(models.Model):
     # reference - https://stackoverflow.com/questions/38388423/what-does-on-delete-do-on-django-models
+    # https://stackoverflow.com/questions/26727616/not-null-constraint-failed-error
     user = models.ForeignKey(User, null=True, on_delete=models.DO_NOTHING)
     product = models.ForeignKey(Product, null=True, on_delete=models.DO_NOTHING)
     current_user = models.CharField(max_length=100, null=True)
@@ -56,6 +57,7 @@ class Order(models.Model):
     total_price = models.IntegerField(default=0, null=True)
     shipping_address = models.CharField(max_length=100, null=True)
     
+    # reference - https://stackoverflow.com/questions/40618356/error-with-str-returned-non-string-type-int
     def __str__(self):
         return str(self.id)
 
