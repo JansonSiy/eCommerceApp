@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .models import User, Profile, Product, Order
 # STEP 11 - REQUIRE LOGIN AUTHENTICATION
 from django.contrib.auth.decorators import login_required
+from .filters import ProductFilter
 
 # reference: https://docs.djangoproject.com/en/3.2/topics/http/shortcuts/
 # request - The request object used to generate this response.
@@ -145,6 +146,14 @@ def checkout(request, order_id):
     context = {'current_user': current_user, 'order': order}
 
     return render(request, 'store/checkout.html', context)
+
+def filter(request):
+    products = Product.objects.all()
+    filter = ProductFilter(request.GET, queryset = products)
+
+    context = {'filter': filter}
+
+    return render(request, 'store/filter.html', context)
 
 # shorthand for template rendering - from django.shortcuts import render_template
 # def store(request):

@@ -6,6 +6,11 @@
 <link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
 
 {% block content %}
+    <!-- <form method="get">
+        {{ filter.form.as_p }}
+        <input type="submit"/>
+    </form> -->
+
     {% if current_user.profile.status == True %}
         <span class="badge bg-success margin white">user: {{ current_user.username }}</span>
         <div class="row row-cols-1 row-cols-sm-3 g-3">

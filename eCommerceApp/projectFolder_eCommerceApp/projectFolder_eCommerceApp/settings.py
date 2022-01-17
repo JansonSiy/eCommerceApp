@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     # The StoreConfig class is in the store/apps.py file, so its dotted path is 'store.apps.StoreConfig'.
     # Edit the projectFolder_eCommerceApp/settings.py file and add that dotted path to the INSTALLED_APPS setting.
     'store.apps.StoreConfig',
-    # # STEP 8 - CREATE ACCOUNTS APP
-    'accounts.apps.AccountsConfig'
+    # STEP 8 - CREATE ACCOUNTS APP
+    'accounts.apps.AccountsConfig',
+    'django_filters'
 ]
 
 MIDDLEWARE = [

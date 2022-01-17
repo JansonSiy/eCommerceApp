@@ -16,6 +16,7 @@ urlpatterns = [
     # Product model
     path('mystore/', views.mystore, name='mystore'),
     path('<int:product_id>/details/', views.details, name='details'),
+    path('filter/', views.filter, name='filter'),
     # Order model
     path('cart/', views.cart, name='cart'),
     path('<int:product_id>/addToCart/', views.addToCart, name='addToCart'),
