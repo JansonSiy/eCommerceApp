@@ -2,6 +2,7 @@
 from django.db import models
 #STEP 14 - CUSTOMIZE USER MODEL BY ASSOCIATING IT WITH PROFILE MODEL
 from django.contrib.auth.models import User
+from model_utils.fields import AutoCreatedField
 
 # create migration files everytime you make changes in the models
 # python manage.py makemigrations
@@ -28,7 +29,7 @@ class Profile(models.Model):
     gender = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
     status = models.BooleanField(default=True)
-
+    created = AutoCreatedField()
     # built in function that defines how a Profile is going to look in both admin and shell
     # self - instance of itself (instance of Profile)
     def __str__(self):
