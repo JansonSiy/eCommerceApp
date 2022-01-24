@@ -1,9 +1,13 @@
 # STEP 3 - WRITE YOUR VIEWS
+from http.client import HTTPResponse
 from django.shortcuts import render, redirect
 from .models import User, Profile, Product, Order
 # STEP 11 - REQUIRE LOGIN AUTHENTICATION
 from django.contrib.auth.decorators import login_required
 from .filters import ProductFilter
+# STEP 16 - EXPORT CSV
+from django.http import HttpResponse
+import csv
 
 # reference: https://docs.djangoproject.com/en/3.2/topics/http/shortcuts/
 # request - The request object used to generate this response.
@@ -154,6 +158,24 @@ def filter(request):
     context = {'filter': filter}
 
     return render(request, 'store/filter.html', context)
+
+def exportProducts(request):
+    # since your are dealing with a CSV file, your content_type should be text/csv
+    response = HttpResponse(content_type='text/csv')
+
+    # create a CSV writer
+    writer = csv.writer(response)
+    # create the header of the file
+    writer.writerow(['Name', 'Price', 'Quantity', 'Image URL', 'Description'])
+
+    # then, loop into your model to get the data
+    for product in Product.objects.all().values_list('name', 'price', 'quantity', 'image', 'description'):
+        writer.writerow(product)
+
+    # this tells the browser what to do with the response, in this case treat it as an attachment
+    response['Content-Disposition'] = 'attachment; filename="products.csv"'
+
+    return response
 
 # shorthand for template rendering - from django.shortcuts import render_template
 # def store(request):

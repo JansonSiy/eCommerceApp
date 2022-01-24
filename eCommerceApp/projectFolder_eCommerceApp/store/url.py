@@ -17,6 +17,7 @@ urlpatterns = [
     path('mystore/', views.mystore, name='mystore'),
     path('<int:product_id>/details/', views.details, name='details'),
     path('filter/', views.filter, name='filter'),
+    path('exportProducts/', views.exportProducts, name='exportProducts'),
     # Order model
     path('cart/', views.cart, name='cart'),
     path('<int:product_id>/addToCart/', views.addToCart, name='addToCart'),

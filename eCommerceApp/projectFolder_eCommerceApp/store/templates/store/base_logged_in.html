@@ -23,13 +23,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'store:profile' %}">MyProfile</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'store:cart' %}">MyCart</a>
                 </li>
                 {% if current_user.username == 'admin' %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'store:users' %}">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'store:exportProducts' %}">Export</a>
                     </li>
                 {% endif %}
             </ul>
