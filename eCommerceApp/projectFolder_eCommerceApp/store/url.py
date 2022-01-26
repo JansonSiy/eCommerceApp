@@ -10,6 +10,7 @@ app_name = 'store'
 urlpatterns = [
     # User model
     path('users/', views.users, name='users'),
+    path('exportUsers/', views.exportUsers, name='exportUsers'),
     # Profile model
     path('profile/', views.profile, name='profile'),
     path('<int:user_id>/activate/', views.activate, name='activate'),

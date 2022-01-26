@@ -1,4 +1,5 @@
 # STEP 3 - WRITE YOUR VIEWS
+from curses.ascii import US
 from http.client import HTTPResponse
 from django.shortcuts import render, redirect
 from .models import User, Profile, Product, Order
@@ -177,6 +178,20 @@ def exportProducts(request):
 
     return response
 
+def exportUsers(request):
+    response = HttpResponse(content_type='text/csv')
+
+    writer = csv.writer(response)
+    writer.writerow(['Username', 'Password'])
+
+    # then, loop into your model to get the data
+    for user in User.objects.all().values_list('username', 'password'):
+        writer.writerow(user)
+
+    # this tells the browser what to do with the response, in this case treat it as an attachment
+    response['Content-Disposition'] = 'attachment; filename="users.csv"'
+
+    return response
 # shorthand for template rendering - from django.shortcuts import render_template
 # def store(request):
 #     context = {}
