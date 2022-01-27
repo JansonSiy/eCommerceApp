@@ -23,7 +23,7 @@ from model_utils.fields import AutoCreatedField
 # (models.Model) - in built in django, it's inheriting some basic functionality that all models will have
 class Profile(models.Model):
     # STEP 14 - associating User and Profile model
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE, related_name='profile')
     name = models.CharField(max_length=100, null=True)
     age = models.IntegerField()
     gender = models.CharField(max_length=100)

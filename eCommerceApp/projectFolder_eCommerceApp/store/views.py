@@ -182,16 +182,24 @@ def exportUsers(request):
     response = HttpResponse(content_type='text/csv')
 
     writer = csv.writer(response)
-    writer.writerow(['Username', 'Password'])
+    # User Model only
+    # writer.writerow(['Username', 'First Name', 'Last Name', 'Email', 'Password'])
 
-    # then, loop into your model to get the data
-    for user in User.objects.all().values_list('username', 'password'):
-        writer.writerow(user)
+    # for user in User.objects.all().values_list('username', 'first_name', 'last_name', 'email', 'password'):
+    #     writer.writerow(user)
 
-    # this tells the browser what to do with the response, in this case treat it as an attachment
+    # User & Profile model
+    writer.writerow(['Username', 'First Name', 'Last Name', 'Email', 
+                     'Age', 'Gender', 'Address', 'Status', 'Date Created'])
+
+    for user in User.objects.all().select_related('profile'):
+        writer.writerow([user.username, user.first_name, user.last_name, user.email, 
+                        user.profile.age, user.profile.gender, user.profile.address, user.profile.status, user.profile.created])
+
     response['Content-Disposition'] = 'attachment; filename="users.csv"'
 
     return response
+
 # shorthand for template rendering - from django.shortcuts import render_template
 # def store(request):
 #     context = {}
