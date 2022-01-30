@@ -22,5 +22,6 @@ urlpatterns = [
     # Order model
     path('cart/', views.cart, name='cart'),
     path('<int:product_id>/addToCart/', views.addToCart, name='addToCart'),
-    path('<int:order_id>/checkout/', views.checkout, name='checkout')
+    path('<int:order_id>/checkout/', views.checkout, name='checkout'),
+    path('reports/', views.reports, name='reports'),
 ]

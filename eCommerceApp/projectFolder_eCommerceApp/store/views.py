@@ -204,3 +204,8 @@ def exportUsers(request):
 # def store(request):
 #     context = {}
 #     return render_template('store.html')
+
+def report(request):
+    pass
+
+    return response
