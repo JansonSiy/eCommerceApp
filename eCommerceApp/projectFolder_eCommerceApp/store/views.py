@@ -160,6 +160,13 @@ def filter(request):
 
     return render(request, 'store/filter.html', context)
 
+def reports(request):
+    current_user = request.user
+
+    context = {'current_user': current_user}
+
+    return render(request, 'store/reports.html', context)
+
 def exportProducts(request):
     # since your are dealing with a CSV file, your content_type should be text/csv
     response = HttpResponse(content_type='text/csv')
@@ -204,8 +211,3 @@ def exportUsers(request):
 # def store(request):
 #     context = {}
 #     return render_template('store.html')
-
-def report(request):
-    pass
-
-    return response

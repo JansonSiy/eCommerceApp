@@ -93,3 +93,15 @@ h1, .active {
     text-align: center;
     font-style: italic;
 }
+
+.reportsCon {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.report {
+    margin: 20px 0px 0px 20px;
+}

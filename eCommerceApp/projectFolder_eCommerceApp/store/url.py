@@ -10,7 +10,6 @@ app_name = 'store'
 urlpatterns = [
     # User model
     path('users/', views.users, name='users'),
-    path('exportUsers/', views.exportUsers, name='exportUsers'),
     # Profile model
     path('profile/', views.profile, name='profile'),
     path('<int:user_id>/activate/', views.activate, name='activate'),
@@ -18,10 +17,12 @@ urlpatterns = [
     path('mystore/', views.mystore, name='mystore'),
     path('<int:product_id>/details/', views.details, name='details'),
     path('filter/', views.filter, name='filter'),
-    path('exportProducts/', views.exportProducts, name='exportProducts'),
     # Order model
     path('cart/', views.cart, name='cart'),
     path('<int:product_id>/addToCart/', views.addToCart, name='addToCart'),
     path('<int:order_id>/checkout/', views.checkout, name='checkout'),
+    # reports
     path('reports/', views.reports, name='reports'),
+    path('exportUsers/', views.exportUsers, name='exportUsers'),
+    path('exportProducts/', views.exportProducts, name='exportProducts')
 ]

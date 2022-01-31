@@ -1,0 +1,15 @@
+{% extends 'store/base_logged_in.html' %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
+
+{% block content %}
+    <div>
+        <h1 class="report">Data Reports</h1>
+        <span class="badge bg-success margin white report">user: {{ current_user.username }}</span>
+    </div>
+    <div class="reportsCon">
+        <a class="nav-link btn btn-outline-success report" href="{% url 'store:exportProducts' %}">Export Products</a>
+        <a class="nav-link btn btn-outline-success report" href="{% url 'store:exportUsers' %}">Export Users</a>
+    </div>
+{% endblock content %}
