@@ -5,7 +5,6 @@ from django.shortcuts import render, redirect
 from .models import User, Profile, Product, Order
 # STEP 11 - REQUIRE LOGIN AUTHENTICATION
 from django.contrib.auth.decorators import login_required
-from .filters import ProductFilter
 # STEP 16 - EXPORT CSV
 from django.http import HttpResponse
 import csv
@@ -151,14 +150,6 @@ def checkout(request, order_id):
     context = {'current_user': current_user, 'order': order}
 
     return render(request, 'store/checkout.html', context)
-
-def filter(request):
-    products = Product.objects.all()
-    filter = ProductFilter(request.GET, queryset = products)
-
-    context = {'filter': filter}
-
-    return render(request, 'store/filter.html', context)
 
 def reports(request):
     current_user = request.user

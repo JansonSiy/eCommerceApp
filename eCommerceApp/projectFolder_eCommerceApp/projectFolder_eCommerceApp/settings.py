@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'store.apps.StoreConfig',
     # STEP 8 - CREATE ACCOUNTS APP
     'accounts.apps.AccountsConfig',
-    'django_filters'
 ]
 
 MIDDLEWARE = [

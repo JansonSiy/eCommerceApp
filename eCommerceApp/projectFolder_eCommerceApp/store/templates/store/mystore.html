@@ -6,10 +6,6 @@
 <link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
 
 {% block content %}
-    <!-- <form method="get">
-        {{ filter.form.as_p }}
-        <input type="submit"/>
-    </form> -->
     {% if current_user.profile.status == True %}
         <span class="badge bg-success margin white">user: {{ current_user.username }}</span>
         <span class="badge bg-success margin white">date_created: {{ current_user.profile.created|date:"d M Y" }}</span>
