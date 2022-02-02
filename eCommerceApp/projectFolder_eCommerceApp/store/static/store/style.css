@@ -11,6 +11,10 @@ h1, .active {
     margin: 1vh 0px 1vh 0.5vw;
 }
 
+.margin_two {
+    margin: 3vh 0px 1vh 1.5vw;
+}
+
 .imgSize {
     height: 50vh;
     width: 80%;
