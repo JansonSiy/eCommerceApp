@@ -9,6 +9,7 @@
     {% if current_user.profile.status == True %}
         <span class="badge bg-success margin white">user: {{ current_user.username }}</span>
         <span class="badge bg-success margin white">date_created: {{ current_user.profile.created|date:"d M Y" }}</span>
+        <span class="badge bg-success margin white">balance: ${{ current_user.profile.balance }}</span>
         <div class="row row-cols-1 row-cols-sm-3 g-3">
             {% for product in products %}
                 <div class="col">

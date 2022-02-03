@@ -30,6 +30,7 @@ class Profile(models.Model):
     address = models.CharField(max_length=100)
     status = models.BooleanField(default=True)
     created = AutoCreatedField()
+    balance = models.IntegerField(default=0)
     # built in function that defines how a Profile is going to look in both admin and shell
     # self - instance of itself (instance of Profile)
     def __str__(self):
