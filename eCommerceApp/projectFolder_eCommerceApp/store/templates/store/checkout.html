@@ -1,3 +1,14 @@
-<h1>This is the checkout page!</h1>
+{% extends 'store/base_logged_in.html' %}
 
-<a class="nav-link" href="{% url 'store:mystore' %}">Store</a>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
+
+{% block content %}
+    <div class="alert alert-success textCenterTwo" role="alert">
+        Checkout Success!
+    </div>
+    <div class="report">
+        <a href="{% url 'store:mystore' %}" class="btn btn-success">&#x2190; Shop Again</a>
+        <a href="{% url 'store:cart' %}" class="btn btn-success">&#x2190; Back to Cart</a>
+    </div>
+{% endblock content %}
