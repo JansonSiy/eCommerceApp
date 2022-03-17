@@ -66,3 +66,12 @@ class Order(models.Model):
 # extra reference regarding .DateTimeField
 # date_ordered = models.DateTimeField(auto_now_add=True)
 # https://stackoverflow.com/questions/51389042/difference-between-auto-now-and-auto-now-add/51389274
+
+class Type(models.Model):
+    FOOD_TYPE = (
+        ('vegtables', 'Vegetables'),
+        ('meat_and_poultry', 'Meat and Poultry'),
+        ('fish_and_seafood', 'Fish and Seafood'),
+    )
+    product_name = models.CharField(max_length=100, null=True)
+    food_type = models.CharField(max_length=100, choices=FOOD_TYPE)
